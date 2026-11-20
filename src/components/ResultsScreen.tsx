@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import type { Category } from "@/data/categories";
 import { START_LIVES, formatTime, type Period, type RunState } from "@/lib/game";
 import { S } from "@/strings";
-import { EuropeMap } from "./EuropeMap";
+import { ItemArt, artFrameClass } from "./ItemArt";
 import { CrownIcon } from "./Icons";
 
 export interface RunResult {
@@ -72,8 +72,8 @@ export function ResultsScreen({ category, result, onAgain }: { category: Categor
               const item = category.items.find((i) => i.id === m.itemId)!;
               return (
                 <li key={m.itemId}>
-                  <div className="thumb">
-                    <EuropeMap countryId={m.itemId} zoom />
+                  <div className={`thumb ${artFrameClass(category.art)}`}>
+                    <ItemArt art={category.art} id={m.itemId} thumb />
                   </div>
                   <span>{item.answer}</span>
                 </li>

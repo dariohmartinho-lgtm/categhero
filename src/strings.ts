@@ -26,7 +26,7 @@ export const S = {
     lead: "Pick a category and climb to the top of its ranking.",
     play: "Play",
     comingSoon: "Coming soon",
-    soon: ["World flags", "European capitals", "Landmarks", "Make your own category"],
+    soon: ["European capitals", "Make your own category"],
   },
 
   category: {
@@ -61,7 +61,6 @@ export const S = {
     exit: "Exit run",
     lives: (n: number) => `Lives: ${n}`,
     practiceTag: "Practice",
-    question: "Which country is highlighted?",
     progress: (i: number, n: number) => `${i} of ${n}`,
     correct: "Correct!",
     wrong: "Wrong",

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CATEGORIES } from "@/data/categories";
 import { useRuns, type Player } from "@/lib/store";
 import { S } from "@/strings";
-import { EuropeMap } from "./EuropeMap";
+import { ItemArt, artFrameClass } from "./ItemArt";
 import { LeaderLine } from "./Ranking";
 
 export function HomeScreen({ player }: { player: Player }) {
@@ -15,8 +15,10 @@ export function HomeScreen({ player }: { player: Player }) {
       <div className="mt-[18px] grid gap-3.5">
         {CATEGORIES.map((c) => (
           <article key={c.id} className="card cat">
-            <div className="art">
-              <EuropeMap countryId="Italy" />
+            <div className={`art ${artFrameClass(c.art)}`}>
+              {c.coverItemIds.map((id) => (
+                <ItemArt key={id} art={c.art} id={id} />
+              ))}
             </div>
             <div className="flex flex-col gap-3 p-4">
               <h2 className="text-[1.35rem]">{c.title}</h2>

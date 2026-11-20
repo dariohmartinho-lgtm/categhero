@@ -19,7 +19,7 @@ import {
 } from "@/lib/game";
 import { getRuns, saveRun, type Player } from "@/lib/store";
 import { S } from "@/strings";
-import { EuropeMap } from "./EuropeMap";
+import { ItemArt, artFrameClass } from "./ItemArt";
 import { CloseIcon, HeartIcon } from "./Icons";
 import { ResultsScreen, type RunResult } from "./ResultsScreen";
 
@@ -238,11 +238,11 @@ function Round({
         </div>
       )}
       <p className="qline">
-        {S.game.question}{" "}
+        {category.prompt}{" "}
         <span className="muted small font-body">{S.game.progress(shown.index + 1, total)}</span>
       </p>
-      <div className="mapcard">
-        <EuropeMap countryId={q.itemId} />
+      <div className={`artcard ${artFrameClass(category.art)}`}>
+        <ItemArt art={category.art} id={q.itemId} />
       </div>
       <div className="opts">
         {q.options.map((o, j) => (
